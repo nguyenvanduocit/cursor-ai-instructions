@@ -1,0 +1,42 @@
+---
+description: Guidelines and best practices for writing Gherkin feature files
+globs: *.feature
+alwaysApply: false
+---
+# Gherkin Guildeline
+
+## Key Principles of Gherkin:
+
+1.  **Collaboration & Communication:** Gherkin's structured natural language format is designed to be easily understood by technical and non-technical team members, fostering shared understanding of requirements.
+2.  **Focus on Behavior & Business Value:** Gherkin describes *what* the system should do from an external, observable perspective and *why*, rather than detailing the internal implementation.
+3.  **Clear, Unambiguous Language:** It encourages the use of consistent, precise, domain-specific terms (Ubiquitous Language) agreed upon by the team.
+4.  **Living Documentation:** Gherkin feature files act as executable specifications. When linked to automated tests, they provide documentation that reflects the actual, current state of the system's behavior.
+
+## Best Practices for Writing Gherkin:
+
+1.  **Feature Files:**
+    * **One Feature Per File:** Each `.feature` file should focus on a single, cohesive capability or user story.
+    * **Meaningful Feature Names:** Use clear names that accurately describe the feature (e.g., `User Authentication`, `Product Catalog Search`).
+    * **Benefit Statement:** Often useful to start features with a narrative explaining the value: "In order to [achieve some goal], As a [type of user], I want [to perform some action]".
+    * **Organize Logically:** Group related feature files into directories for better project structure.
+
+2.  **Scenarios:**
+    * **One Specific Behavior Per Scenario:** Each scenario should test a single, distinct rule or path through the feature.
+    * **Declarative Style:** Describe *what* the user or system does and *what* the outcome is, not the low-level interaction details (e.g., "When the user logs in" vs. "When the user clicks the login button").
+    * **Clear Scenario Titles:** Summarize the specific rule or example being tested (e.g., `Successful login with valid credentials`).
+    * **Use `Background` for Setup:** Consolidate common `Given` steps shared by all scenarios in a feature into a `Background` section.
+    * **Use `Scenario Outline` for Examples:** Employ `Scenario Outline` and `Examples` tables to test the same workflow with different sets of data inputs and expected outputs efficiently.
+    * **Keep Scenarios Concise:** Aim for readability; typically 3-7 steps per scenario is a good guideline.
+
+3.  **Steps (Given, When, Then):**
+    * **`Given`:** Establishes the initial context or state before an action occurs.
+    * **`When`:** Describes the key action performed by the user or an event triggered within the system.
+    * **`Then`:** Specifies the expected outcome(s) that should be verifiable after the `When` step.
+    * **`And`/`But`:** Use these to chain multiple steps of the *same* type (`Given`, `When`, or `Then`) logically, enhancing readability. Avoid overly long chains.
+    * **Promote Step Reuse:** Write steps generically enough to be reused across different scenarios and features. Use parameters within steps for flexibility.
+    * **Avoid Conjunctions within Steps:** Split compound statements into multiple steps (e.g., instead of "Then the user is redirected and sees a message", use two separate `Then` steps).
+
+4.  **Language & Terminology:**
+    * **Consistent Domain Language:** Use terms consistently as defined in the project's shared vocabulary (ubiquitous language).
+    * **Active Voice:** Prefer active voice for clarity (e.g., "When the user searches for 'product'").
+    * **Review Regularly:** Ensure feature files are reviewed by relevant stakeholders (developers, testers, BAs, product owners) to maintain accuracy and shared understanding.
