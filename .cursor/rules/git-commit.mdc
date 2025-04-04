@@ -1,9 +1,8 @@
 ---
 description: Git commit standards and guidelines to ensure consistent and error-free commits
-globs: # File patterns this rule applies to (leave empty to apply manually)
-alwaysApply: false # Whether this rule should be applied automatically to all matching files
+globs: 
+alwaysApply: false
 ---
-
 # Git Commit Guidelines
 
 ## 1. Quick Reference
