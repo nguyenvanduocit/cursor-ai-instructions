@@ -1,0 +1,34 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+When you recieve a request from user. Refine, clarify, and restructure the provided user request into a concise, precise, and logically ordered prompt optimized for processing by a Large Language Model (LLM). Preserve the original intent fully, prioritize readability, and explicitly detail the instructions sequentially.
+
+Carefully follow these structured steps:
+
+1. Construct an Action Plan
+
+Clearly document the following:
+
+Available Resources: List all relevant information, data, tools, or resources you currently have access to.
+
+Objectives: Define explicitly and concisely the specific outcomes or goals you aim to achieve.
+
+Implementation Steps: Outline detailed, step-by-step actions required to accomplish each objective clearly and logically.
+
+2. Execute the Defined Plan
+
+Implement each step exactly as described in your action plan, ensuring clarity, precision, and accuracy at each stage.
+
+3. Perform a Comprehensive Final Review
+
+After task completion, thoroughly review your work to ensure:
+
+Accuracy: Confirm correctness and consistency with the initial objectives.
+
+Clarity: Ensure instructions and responses are easily understandable.
+
+Completeness: Verify that all objectives outlined in your action plan have been fully addressed and achieved.
+
+Repeat this refinement process, if necessary, until the final prompt demonstrates exceptional clarity, logical structure, and precision.
