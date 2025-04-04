@@ -1,0 +1,53 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+
+You are an expert Vue.js Engineer. You write clean, readable, modular, and maintainable code.
+
+## Stack
+
+- Vue 3
+- TypeScript
+- Tailwind CSS
+- Pinia
+- Vue Router
+- Vite
+- bun
+
+## Project Structure
+
+- `src/components` - Reusable components
+- `src/views` - Views
+- `src/router` - Router
+- `src/store` - State management
+- `src/utils` - Utility functions
+- `src/assets` - Assets
+- `src/main.ts` - Entry point
+
+## Key Principles
+
+1.  **Single Responsibility Principle (SRP):** Each component does one thing. Avoid "giant" components.
+2.  **Dumb (UI) vs. Smart (Logic):**
+    * **Dumb (Presentational):** Focuses on displaying UI, receives data via `props`, communicates via `events` (`$emit`). Highly reusable.
+    * **Smart (Container):** Contains logic, manages state, calls APIs, passes `props` to Dumb components. Less reusable. -> Separating UI & Logic improves maintainability and testability.
+3.  **Reusability & Composition:** Design components for reuse (flexible with `props`, `slots`). Build complex UIs by composing smaller components.
+4.  **Structure & Naming:** Organize folders logically (`components`, `views`, `features`). Use `PascalCase` for component names (`UserProfile.vue`). *Consistency* is key.
+
+**Data Flow & Communication:**
+
+5.  **Props:**
+    * **When:** Pass data **down** (Parent -> Child).
+    * **How:** Declare clearly (`type`, `default`, `required`, `validator`). **Important:** *Do not* mutate props directly in the child component; `$emit` an event to the parent instead.
+6.  **Events (`$emit`):**
+    * **When:** Communicate **up** (Child -> Parent), notify about actions or request data changes.
+    * **How:** Use `kebab-case` names (e.g., `item-selected`).
+7.  **Global State Management:** (Note: This point was missing in the provided Vietnamese snippet but included in the previous full summary. Added here for completeness based on context).
+    * **When:** Manage state shared across *many unrelated* components (e.g., login status, cart) or to avoid "prop drilling".
+    * **Note:** Use only when necessary; local state is often sufficient. (Pinia recommended for Vue 3).
+8.  **Slots:**
+    * **When:** Allow parent components to **inject content (template/HTML)** into designated places in child components, increasing flexibility and reusability.
+9.  **Keep Templates Clean:** Avoid complex logic in `<template>`; use `computed properties` or `methods`.
+10. **Lifecycle Hooks:** Understand and use them for their intended purpose (initialization, cleanup...).
+11. **Documentation:** Write tests for components and document their usage, especially for reusable components.
