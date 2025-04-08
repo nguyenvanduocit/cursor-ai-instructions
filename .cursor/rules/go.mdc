@@ -1,0 +1,45 @@
+---
+description: 
+globs: *.go
+alwaysApply: false
+---
+### Golang Guidelines
+
+These guidelines aim to ensure the generated code is clear, simple, maintainable, and consistent, drawing inspiration from established software engineering best practices.
+
+**1. Clarity and Simplicity:**
+    * **Readability First:** Generate code that prioritizes human readability and understanding. It's often more important that code is easy to read than easy to write.
+    * **Simplicity:** Opt for the simplest and most straightforward approach to solve the problem. Avoid unnecessary complexity or abstractions that obscure the code's logic or data flow.
+    * **Avoid Obscurity:** Do not use overly clever or obscure language features if a simpler alternative exists.
+
+**2. Naming Conventions:**
+    * **Meaningful Names:** Use descriptive names for variables, functions, classes, methods, etc., that clearly indicate their purpose.
+    * **Contextual Brevity:** While names should be descriptive, avoid unnecessary repetition of context already provided by the package, class, or module name. (e.g., if in a `user` package, `user.Name` is better than `user.UserName`).
+    * **Language Conventions:** Strictly follow the standard naming conventions of the target language (e.g., `camelCase`, `PascalCase`, `snake_case`).
+    * **Avoid "Get" Prefix:** Do not use prefixes like "Get" for functions/methods that retrieve values if the language/framework convention doesn't require it and the function name itself is clear (e.g., prefer `user.Name()` over `user.GetName()`).
+    * **Consistency:** Use consistent naming within the generated code block and ideally, align with the surrounding project's conventions if context is available. Receiver names (in languages like Go) should be short, typically abbreviations, and consistent for a given type.
+    * **Initialisms:** Handle initialisms (e.g., API, HTTP, URL) consistently according to language best practices (e.g., `apiClient` or `APIClient` in Go, `api_client` in Python).
+
+**3. Code Structure and Formatting:**
+    * **Standard Formatting:** Ensure all generated code conforms to the standard, idiomatic formatting rules of the target language (e.g., `gofmt` for Go, PEP 8 for Python, Prettier for JS).
+    * **Organization:** Structure code logically. Group related functions and data together. Keep functions and methods focused on a single task.
+    * **Imports:** Organize import statements according to language conventions (e.g., standard library, third-party, local project). Use standard aliases where applicable but avoid renaming imports unless necessary to prevent collisions.
+
+**4. Maintainability:**
+    * **Modularity:** Write code that is modular and avoids tight coupling between components.
+    * **Testability:** Generate code that is easy to test. Prefer pure functions and consider dependency injection patterns where appropriate.
+    * **Avoid Repetition (DRY):** Do not repeat the same code logic in multiple places. Use functions, methods, or constants to encapsulate repeated elements.
+
+**5. Error Handling:**
+    * **Explicit Handling:** Handle potential errors explicitly and robustly, following the target language's idiomatic error handling mechanisms (e.g., return `error` in Go, use exceptions in Python/Java).
+    * **No Silent Failures:** Do not discard or ignore errors silently. Errors should be checked, handled, propagated, or logged appropriately.
+    * **Clear Error Messages:** When creating error messages, make them informative and clear, usually starting lowercase without punctuation (as per Go convention, though language specifics may vary).
+
+**6. Comments:**
+    * **Explain the "Why":** Add comments primarily to explain *why* certain decisions were made or to clarify non-obvious logic, rather than just explaining *what* the code does.
+    * **Public APIs:** Document exported functions, classes, methods, and constants clearly, explaining their purpose, parameters, and return values.
+    * **Package/Module Comments:** Include comments at the beginning of files or packages/modules to describe their overall purpose.
+
+**7. Consistency:**
+    * **Internal Consistency:** Ensure the generated code is internally consistent in style, naming, and structure.
+    * **External Consistency:** If generating code within an existing project, try to match the style and conventions already present in that codebase.
