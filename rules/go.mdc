@@ -5,6 +5,8 @@ alwaysApply: false
 ---
 ### Golang Guidelines
 
+## Part 1: Coding Guidelines
+
 These guidelines aim to ensure the generated code is clear, simple, maintainable, and consistent, drawing inspiration from established software engineering best practices.
 
 **1. Clarity and Simplicity:**
@@ -43,3 +45,45 @@ These guidelines aim to ensure the generated code is clear, simple, maintainable
 **7. Consistency:**
     * **Internal Consistency:** Ensure the generated code is internally consistent in style, naming, and structure.
     * **External Consistency:** If generating code within an existing project, try to match the style and conventions already present in that codebase.
+
+## Part 2: Tooling
+
+**1. Using `go doc` for Documentation:**
+    * **Basic Usage:** Use `go doc` to view documentation for packages, functions, types, and methods directly in your terminal.
+      ```
+      go doc [package]
+      go doc [package].[function|type|method]
+      ```
+    * **Viewing Package Documentation:** 
+      ```
+      go doc encoding/json
+      ```
+    * **Viewing Struct Types:** To see documentation for a specific struct:
+      ```
+      go doc time.Duration
+      go doc http.Request
+      ```
+    * **Viewing Functions or Methods:** To view documentation for a specific function or method:
+      ```
+      go doc fmt.Println
+      go doc json.Marshal
+      go doc http.Request.WriteProxy
+      ```
+    * **Detailed Documentation:** Use `-all` flag to see all documentation including unexported symbols:
+      ```
+      go doc -all encoding/json
+      ```
+    * **Source Code:** Use `-src` flag to view the actual source code:
+      ```
+      go doc -src json.Marshal
+      ```
+    * **Advanced Examples:** To view examples associated with a package or function:
+      ```
+      go doc -ex json.Marshal
+      ```
+
+**2. Tips for Effective Documentation Usage:**
+    * Before implementing a function or using a package, check its documentation to understand its behavior and requirements
+    * When using third-party packages, use `go doc` to explore their API
+    * When troubleshooting, examine method signatures and behaviors with `go doc` for correct usage
+    * For Go standard library, use `go doc` to discover related functions and methods that might help solve your problem
