@@ -1,31 +1,21 @@
 # AI-Optimized IDE Configurations
 
-This repository contains a collection of configurations, settings, scripts, and tools I use to optimize my development environment for AI-assisted coding.
+This repository contains a collection of configurations, settings, scripts, and tools to optimize my development environment for AI-assisted coding.
 
-## Purpose
+### How to download rules:
 
-The goal of this repository is to:
-- Document configurations that enhance AI capabilities in modern IDEs
-- Share optimized settings for AI pair programming
-- Collect tools and scripts that improve the AI coding experience
-- Provide reference implementations for various AI-IDE integrations
+```bash
+mkdir -p ~/.cursor/rules
+curl -o .cursor/rules/git-commit.mdc https://raw.githubusercontent.com/nguyenvanduocit/cursor-ai-instructions/refs/heads/main/.cursor/rules/git-commit.mdc
+```
 
-## Contents
 
-- Configuration files for Cursor AI
-- Custom rules for efficient AI interactions
-- Prompt templates and strategies for effective AI collaboration
-- Scripts to automate common AI-assisted workflows
-- Best practices for maximizing AI productivity
+### Rule list
 
-## Getting Started
+This is the list of cursor rules, you can use cli to download it to your `.cursor/rules` directory.
 
-Browse the repository to find configurations relevant to your IDE and workflow. Each directory contains specific instructions for implementation.
-
-## Contributing
-
-Contributions are not required, as these configurations are highly personalized to individual needs and workflows.
-
-## License
-
-[MIT License](LICENSE)
+- gherkin.mdc: Guidelines to generate the best Gherkin feature files. Helps users write clear, structured BDD specifications with proper Given-When-Then scenarios, meaningful feature descriptions, and maintainable test cases.
+- git-commit.mdc: Guidelines for writing effective, conventional git commit messages. Helps maintain a clean, readable commit history with properly formatted messages that follow best practices.
+- go.mdc: Guidelines for writing idiomatic, efficient Go code. Helps users follow Go best practices, standard patterns, error handling, and package structure.
+- optimize.mdc: Guidelines for code optimization. Helps identify and eliminate performance bottlenecks, improve algorithm efficiency, and write performant code.
+- vue.mdc: Guidelines for Vue.js development. Helps write maintainable Vue components, organize project structure, and follow Vue best practices.
