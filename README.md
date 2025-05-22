@@ -5,9 +5,11 @@ This repository contains a collection of configurations, settings, scripts, and 
 ### How to download rules:
 
 ```bash
-mkdir -p ~/.cursor/rules
-curl -o .cursor/rules/git-commit.mdc https://raw.githubusercontent.com/nguyenvanduocit/cursor-ai-instructions/refs/heads/main/.cursor/rules/git-commit.mdc
+mkdir -p $PWD/.cursor/rules
+curl -o $PWD/.cursor/rules/git-commit.mdc https://raw.githubusercontent.com/nguyenvanduocit/cursor-ai-instructions/refs/heads/main/rules/git-commit.mdc
 ```
+
+$PWD is your project directory or current working dir
 
 
 ### Rule list
