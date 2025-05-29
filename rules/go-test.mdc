@@ -1,0 +1,131 @@
+---
+description: 
+globs: *_test.go
+alwaysApply: false
+---
+## ✅ Go Unit Testing Best Practices
+
+### 1. **Structure Your Tests Properly**
+
+* **File Naming**: Name test files with the `_test.go` suffix.
+* **Function Naming**: Test functions should start with `Test` followed by the function name, e.g., `TestHello`.
+* **Package Consistency**: Keep tests in the same package as the code they're testing to access unexported identifiers.([Go][2], [Go Packages][3])
+
+### 2. **Utilize Table-Driven Tests**
+
+Table-driven tests allow you to test multiple scenarios efficiently.([dwarvesf.hashnode.dev][1])
+
+```go
+func TestAdd(t *testing.T) {
+    tests := []struct {
+        name string
+        a, b int
+        want int
+    }{
+        {"positive numbers", 2, 3, 5},
+        {"zero and positive", 0, 5, 5},
+        {"negative numbers", -2, -3, -5},
+    }
+
+    for _, tt := range tests {
+        t.Run(tt.name, func(t *testing.T) {
+            got := Add(tt.a, tt.b)
+            if got != tt.want {
+                t.Errorf("Add(%d, %d) = %d; want %d", tt.a, tt.b, got, tt.want)
+            }
+        })
+    }
+}
+```
+
+
+
+### 3. **Isolate Tests**
+
+* **Avoid External Dependencies**: Use interfaces and mocks to isolate the unit under test.
+* **Use Mocks**: Employ mocking frameworks like `gomock` or `testify/mock` to simulate dependencies.([Medium][4])
+
+### 4. **Assert Expected Outcomes**
+
+Always verify that the actual output matches the expected output.
+
+```go
+func TestHello(t *testing.T) {
+    got := Hello("World")
+    want := "Hello, World"
+    if got != want {
+        t.Errorf("Hello() = %q; want %q", got, want)
+    }
+}
+```
+
+
+
+### 5. **Handle Errors Gracefully**
+
+Test both successful outcomes and error conditions to ensure robust error handling.
+
+```go
+func TestDivide(t *testing.T) {
+    _, err := Divide(10, 0)
+    if err == nil {
+        t.Error("Expected error when dividing by zero, got nil")
+    }
+}
+```
+
+
+
+### 6. **Measure Test Coverage**
+
+Use Go's built-in tools to assess how much of your code is exercised by tests.([Go][5])
+
+```bash
+go test -cover
+```
+
+
+
+Aim for high coverage, but prioritize meaningful tests over achieving 100% coverage.
+
+### 7. **Benchmark Performance**
+
+Identify performance bottlenecks by writing benchmark tests.
+
+```go
+func BenchmarkAdd(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        Add(1, 2)
+    }
+}
+```
+
+
+
+Run benchmarks using:
+
+```bash
+go test -bench=.
+```
+
+
+
+### 8. **Keep Tests Fast and Reliable**
+
+* **Speed**: Ensure tests run quickly to facilitate rapid development cycles.
+* **Determinism**: Avoid flaky tests by eliminating dependencies on external systems or timing.
+
+### 9. **Use Subtests for Clarity**
+
+Organize related tests using subtests to improve readability and structure.
+
+```go
+func TestMathOperations(t *testing.T) {
+    t.Run("Addition", func(t *testing.T) {
+        // test addition
+    })
+    t.Run("Subtraction", func(t *testing.T) {
+        // test subtraction
+    })
+}
+```
